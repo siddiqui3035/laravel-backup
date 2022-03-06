@@ -301,10 +301,10 @@ return [
 ## Now go to App/Console/kernel.php file and add schedule time when you want to backup and crear previous backup database files.
 
 ```php
-    protected function schedule(Schedule $schedule)
-    {
-        $schedule->command('backup:clean')->daily()->at('19:28');
-        $schedule->command('backup:run')->daily()->at('19:30');
-        // $schedule->command('inspire')->hourly();
-    }
+protected function schedule(Schedule $schedule)
+{
+    $schedule->command('backup:clean')->daily()->at('19:28');
+    $schedule->command('backup:run')->daily()->at('19:30');
+    // $schedule->command('inspire')->hourly();
+}
 ```
