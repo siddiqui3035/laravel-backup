@@ -308,3 +308,41 @@ protected function schedule(Schedule $schedule)
     // $schedule->command('inspire')->hourly();
 }
 ```
+
+## Password rule add:
+
+## Install laravel breeze:
+
+```php
+composer require laravel/breeze --dev
+```
+
+```php
+php artisan breeze:install
+```
+
+```php
+npm install
+```
+
+```php
+npm run dev
+```
+
+## Go to App/Http/Controllers/Auth/RegisteredUserController and add below validation on store method;
+
+```php
+  $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => [
+                'required', 
+                'confirmed', 
+                Rules\Password::defaults()
+                ->letters()
+                ->numbers()
+                ->mixedCase()
+                ->symbols()
+            ],
+        ]);
+```
